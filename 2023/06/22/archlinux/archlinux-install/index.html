@@ -1,0 +1,814 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>archlinux install | Departure Station</title><meta name="author" content="TheJC"><meta name="copyright" content="TheJC"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="archlinux install">
+<meta property="og:type" content="article">
+<meta property="og:title" content="archlinux install">
+<meta property="og:url" content="https://www.threearapig.cc/2023/06/22/archlinux/archlinux-install/index.html">
+<meta property="og:site_name" content="Departure Station">
+<meta property="og:description" content="archlinux install">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pichost.threearapig.cc/wallpapers/default_cover_8.webp">
+<meta property="article:published_time" content="2023-06-22T05:25:08.000Z">
+<meta property="article:modified_time" content="2023-06-22T17:45:46.730Z">
+<meta property="article:author" content="TheJC">
+<meta property="article:tag" content="archlinux">
+<meta property="article:tag" content="install">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pichost.threearapig.cc/wallpapers/default_cover_8.webp"><link rel="shortcut icon" href="https://pichost.threearapig.cc/icons/arch.png"><link rel="canonical" href="https://www.threearapig.cc/2023/06/22/archlinux/archlinux-install/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"R2IQOROLEI","apiKey":"c5d72d9b7607902d410cb9312e530d08","indexName":"threearapig","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'archlinux install',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-23 01:45:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="//blog.threearapig.cc/pace/progress_bar.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://blog.threearapig.cc/footer/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://blog.threearapig.cc/wowjs/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://blog.threearapig.cc/gitcalendar/gitcalendar.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/avatar/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pichost.threearapig.cc/wallpapers/default_cover_8.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Departure Station"><span class="site-name">Departure Station</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">archlinux install</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-22T05:25:08.000Z" title="发表于 2023-06-22 13:25:08">2023-06-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-22T17:45:46.730Z" title="更新于 2023-06-23 01:45:46">2023-06-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/archlinux/">archlinux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2207</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="archlinux install"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="archlinux-安装总结"><a href="#archlinux-安装总结" class="headerlink" title="archlinux 安装总结"></a>archlinux 安装总结</h1><h2 id="基本安装"><a href="#基本安装" class="headerlink" title="基本安装"></a>基本安装</h2><h3 id="键盘布局"><a href="#键盘布局" class="headerlink" title="键盘布局"></a>键盘布局</h3><p>临时更改终端中的键盘布局</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loadkeys colemak</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭蜂鸣器"><a href="#关闭蜂鸣器" class="headerlink" title="关闭蜂鸣器"></a>关闭蜂鸣器</h3><p>临时关闭蜂鸣器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmmod pcspkr</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="禁用-reflector"><a href="#禁用-reflector" class="headerlink" title="禁用 reflector"></a>禁用 reflector</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop reflector.service</span><br></pre></td></tr></table></figure>
+
+<p>reflector 会自动选择速度合适的镜像源，但是结果不是很准确，同时也会清空配置文件中的内容，所以开始就先将其禁用  </p>
+<h3 id="连接互联网"><a href="#连接互联网" class="headerlink" title="连接互联网"></a>连接互联网</h3><p>有时电脑的无线网卡是block状态，需要解锁  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rfkill unblock all</span><br></pre></td></tr></table></figure>
+
+<p>使用镜像自带的互联网连接工具: iwd  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iwctl</span><br><span class="line">device list</span><br><span class="line">station wlan0 scan</span><br><span class="line">station wlan0 get-networks</span><br><span class="line">station wlan0 connect wireless-name</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<p>连网检测  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="更新系统时钟"><a href="#更新系统时钟" class="headerlink" title="更新系统时钟"></a>更新系统时钟</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span></span><br><span class="line">timedatectl status</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>成功状态<br>clock synchronized：yes<br>NTP service：active  </p>
+</blockquote>
+<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>查看需要操作的硬盘  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
+
+<p>将磁盘分区类型改成GPT格式  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/nvme0n1</span><br><span class="line">(parted)mktable</span><br><span class="line">New disk label <span class="built_in">type</span>? gpt</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>成功设置会出现小提示：<br>You may need to update &#x2F;etc&#x2F;fstab  </p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>容量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;efi</td>
+<td>800M</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>100G</td>
+</tr>
+<tr>
+<td>&#x2F;home</td>
+<td>剩余的全部</td>
+</tr>
+</tbody></table>
+<p><code>/efi</code> 分区需要将文件类型改成 <code>EFI System</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfdisk /dev/nvme0n1</span><br></pre></td></tr></table></figure>
+
+<p>检查分区类型和分区情况    </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><table>
+<thead>
+<tr>
+<th>分区</th>
+<th>文件系统类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;efi</td>
+<td>vfat</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>ext4</td>
+</tr>
+<tr>
+<td>&#x2F;home</td>
+<td>ext4</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.vfat /dev/nvme0n1p1</span><br><span class="line">mkfs.ext4 /dev/nvme0n1p2</span><br><span class="line">mkfs.ext4 /dev/nvme0n1p3</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><table>
+<thead>
+<tr>
+<th>分区</th>
+<th>挂载点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nvme0n1p1</td>
+<td>&#x2F;efi</td>
+</tr>
+<tr>
+<td>nvme0n1p2</td>
+<td>&#x2F;</td>
+</tr>
+<tr>
+<td>nvme0n1p3</td>
+<td>&#x2F;home</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n1p2 /mnt</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/efi</span><br><span class="line">mount /dev/nvme0n1p1 /mnt/efi</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/home</span><br><span class="line">mount /dev/nvme0n1p3 /mnt/home</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h3><p>选择镜像源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>mirrorlist</code> 文件的最上面几行添加以下内容：  </p>
+<table>
+<thead>
+<tr>
+<th>镜像源</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ustc</td>
+<td>中科大</td>
+</tr>
+<tr>
+<td>tuna.tsinghua</td>
+<td>清华</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Server = https://mirrors.ustc.edu.cn/archlinux/<span class="variable">$repo</span>/os/<span class="variable">$arch</span></span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/<span class="variable">$repo</span>/os/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+
+<p>更新 archlinux-keyring  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy archlinux-keyring</span><br></pre></td></tr></table></figure>
+
+<p>安装必要的基础包  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-headers linux-firmware</span><br></pre></td></tr></table></figure>
+
+<p>安装其他需要的包  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt vim bash-completion networkmanager</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="生成-fstab-文件"><a href="#生成-fstab-文件" class="headerlink" title="生成 fstab 文件"></a>生成 fstab 文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>检查一下  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="切换到新的系统"><a href="#切换到新的系统" class="headerlink" title="切换到新的系统"></a>切换到新的系统</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+
+<p>将时间写入硬件  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="本地化"><a href="#本地化" class="headerlink" title="本地化"></a>本地化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/locale.gen</span><br></pre></td></tr></table></figure>
+
+<p>删掉 en_US.UTF-8 以及 zh_CN.UTF-8 所在行的注释符号 <code>#</code>  </p>
+<hr>
+<p>生成locale  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>指定系统使用的语言格式  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;LANG=en_US.UTF-8&#x27;</span>  &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置主机名"><a href="#设置主机名" class="headerlink" title="设置主机名"></a>设置主机名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<p>写入主机名  </p>
+<hr>
+<p>设置ip 主机名 域名的映射  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>加入以下内容：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   主机名</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="root-密码"><a href="#root-密码" class="headerlink" title="root 密码"></a>root 密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装微码"><a href="#安装微码" class="headerlink" title="安装微码"></a>安装微码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S amd-ucode</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装引导程序"><a href="#安装引导程序" class="headerlink" title="安装引导程序"></a>安装引导程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S grub efibootmgr</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>去掉GRUB_CMDLINE_LINUX_DEFAULT一行中最后的 <code>quiet</code> 参数  </li>
+<li>把同一行 <code>log level</code> 的数值从 3 改成 5  </li>
+<li>在同一行加入 <code>nowatchdog</code> 参数</li>
+</ol>
+<p>生成 GRUB 所需的配置文件  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置必要应用的开机自启"><a href="#设置必要应用的开机自启" class="headerlink" title="设置必要应用的开机自启"></a>设置必要应用的开机自启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> NetworkManager</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="更改终端中的键盘布局"><a href="#更改终端中的键盘布局" class="headerlink" title="更改终端中的键盘布局"></a>更改终端中的键盘布局</h3><p>持久更改  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/vconsole.conf</span><br></pre></td></tr></table></figure>
+
+<p>加入内容:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">KEYMAP=colemak</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关闭蜂鸣器-1"><a href="#关闭蜂鸣器-1" class="headerlink" title="关闭蜂鸣器"></a>关闭蜂鸣器</h3><p>持久更改  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;blacklist pcspkr&quot;</span> &gt; /etc/modprobe.d/nobeep.conf</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="完成安装并重启"><a href="#完成安装并重启" class="headerlink" title="完成安装并重启"></a>完成安装并重启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">umount -R /mnt</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="安装后的基本设置"><a href="#安装后的基本设置" class="headerlink" title="安装后的基本设置"></a>安装后的基本设置</h2><h3 id="连接wifi"><a href="#连接wifi" class="headerlink" title="连接wifi"></a>连接wifi</h3><p>使用 <code>NetworkManager</code> 包的工具 <code>nmcli</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmcli device wifi list</span><br><span class="line">nmcli device wifi connect wifiname password wifipassword</span><br></pre></td></tr></table></figure>
+
+<h3 id="准备非-root-用户"><a href="#准备非-root-用户" class="headerlink" title="准备非 root 用户"></a>准备非 root 用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash thejc</span><br></pre></td></tr></table></figure>
+
+<p>设置用户密码  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd thejc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>去掉需要功能对应的注释 <code>#</code>  </p>
+<h3 id="设置交换文件-swap"><a href="#设置交换文件-swap" class="headerlink" title="设置交换文件 swap"></a>设置交换文件 swap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1M count=8192 status=progress</span><br><span class="line"><span class="built_in">chmod</span> 600 /swapfile</span><br><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>追加如下内容：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile none swap defaults 0 0</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="开启-32-位支持库"><a href="#开启-32-位支持库" class="headerlink" title="开启 32 位支持库"></a>开启 32 位支持库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+
+<p>去掉[multilib]一节中两行的注释，来开启 32 位库支持<br>追加内容：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syyu</span><br><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="设置-DNS"><a href="#设置-DNS" class="headerlink" title="设置 DNS"></a>设置 DNS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+
+<p>追加如下内容：  </p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 2001:4860:4860::8888</span><br><span class="line">nameserver 8.8.4.4</span><br><span class="line">nameserver 2001:4860:4860::8844</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>使有些路由器不能覆盖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chattr +i /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装-paru"><a href="#安装-paru" class="headerlink" title="安装 paru"></a>安装 paru</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S paru</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装v2ray、v2rayA"><a href="#安装v2ray、v2rayA" class="headerlink" title="安装v2ray、v2rayA"></a>安装v2ray、v2rayA</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S v2ray v2raya</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> v2raya.service</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>v2raya 监听：127.0.0.1:2017<br>这里的 v2ray 取消了全局代理选项，将其加入到了普通代理中，直接使用即可，不需要专门设置全局代理模式  </p>
+</blockquote>
+<h3 id="安装浏览器"><a href="#安装浏览器" class="headerlink" title="安装浏览器"></a>安装浏览器</h3><table>
+<thead>
+<tr>
+<th>软件包</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firefox</td>
+<td>火狐浏览器</td>
+</tr>
+<tr>
+<td>wqy-microhei</td>
+<td>微软雅黑</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S firefox wqy-microhei</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>最后重启，并使用普通用户登陆</strong>  </p>
+<h2 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h2><h3 id="窗口管理器和终端"><a href="#窗口管理器和终端" class="headerlink" title="窗口管理器和终端"></a>窗口管理器和终端</h3><table>
+<thead>
+<tr>
+<th>软件包</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>xorg</td>
+<td>X window 框架</td>
+</tr>
+<tr>
+<td>xorg-xinit</td>
+<td>启动 xorg</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg xorg-xinit</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /etc/X11/xinit/xinitrc ~/.xinitrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim .xinitrc</span><br></pre></td></tr></table></figure>
+
+<p>删除多余的启动项，并在最后加入：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> dwm</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>创建用于存放 dwm、st 等程序的目录  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/prog</span><br></pre></td></tr></table></figure>
+
+<p>克隆编译好的 <code>dwm</code> 和 <code>st</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/prog</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/threearapig/dwm.git</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/threearapig/st.git</span><br></pre></td></tr></table></figure>
+
+<p>安装 <code>dwm</code> 和 <code>st</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/prog/dwm</span><br><span class="line">sudo make clean install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/prog/st</span><br><span class="line">sudo make clean install</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>安装 dwm 需要用到的程序  </p>
+<table>
+<thead>
+<tr>
+<th>软件包</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>picom-jonaburg-git</td>
+<td>效果渲染器</td>
+</tr>
+<tr>
+<td>bc acpi acpitool</td>
+<td>用于 dwm bar</td>
+</tr>
+<tr>
+<td>feh-git</td>
+<td>用于显示桌面背景</td>
+</tr>
+<tr>
+<td>wmname</td>
+<td>解决 idea 等程序在 dwm 显示不正确</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -S  wmname bc acpi acpitool feh-git picom-jonaburg-git</span><br></pre></td></tr></table></figure>
+
+<p>获取 <code>dwm autostart 补丁启动的脚本</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/threearapig/scripts.git</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用字体"><a href="#常用字体" class="headerlink" title="常用字体"></a>常用字体</h3><p>关于 dwm 状态栏 和 st 的字体，在 chezmoi 中  </p>
+<p>打开字体渲染引擎</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile.d/freetype2.sh</span><br></pre></td></tr></table></figure>
+
+<p>将最下面的注释去掉即可  </p>
+<h3 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h3><table>
+<thead>
+<tr>
+<th>软件包</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ranger</td>
+<td></td>
+</tr>
+<tr>
+<td>ueberzug</td>
+<td>用于 ranger 预览图片</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S ranger-git ueberzug</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ranger 的配置在 chezmoi 中  </p>
+</blockquote>
+<h3 id="fcitx5"><a href="#fcitx5" class="headerlink" title="fcitx5"></a>fcitx5</h3><table>
+<thead>
+<tr>
+<th>程序</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fcitx5-im</td>
+<td>fcitx5包组，包含fcitx5本体,配置工具，英文输入法模块</td>
+</tr>
+<tr>
+<td>fcitx5-chinese-addons</td>
+<td>中文输入法引擎</td>
+</tr>
+<tr>
+<td>fcitx5-pinyin-zhwiki</td>
+<td>词库</td>
+</tr>
+<tr>
+<td>fcitx5-pinyin-moegirl</td>
+<td>词库</td>
+</tr>
+<tr>
+<td>fcitx5-nord</td>
+<td>输入法主题</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl fcitx5-nord</span><br></pre></td></tr></table></figure>
+
+<p>配置环境变量  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/environment</span><br></pre></td></tr></table></figure>
+
+<p>加入以下内容：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">INPUT_METHOD=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br><span class="line">GLFW_IM_MODULE=ibus</span><br></pre></td></tr></table></figure>
+
+<p>之后使用 fcitx5-configtool 工具来进行 fcitx5 的一些配置  </p>
+<blockquote>
+<p>重启后生效  </p>
+</blockquote>
+<h3 id="主题和图标"><a href="#主题和图标" class="headerlink" title="主题和图标"></a>主题和图标</h3><table>
+<thead>
+<tr>
+<th>adapta-gtk-theme</th>
+<th>gtk 主题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>arc-icon-theme</td>
+<td>图标主题</td>
+</tr>
+<tr>
+<td>lxappearance</td>
+<td>gtk 主题设置</td>
+</tr>
+<tr>
+<td>qt5ct</td>
+<td>qt5 主题设置</td>
+</tr>
+<tr>
+<td>qt5-styleplugins</td>
+<td>qt5 主题与 gtk 同步</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -S adapta-gtk-theme arc-icon-theme lxappearance qt5ct qt5-styleplugins</span><br></pre></td></tr></table></figure>
+
+<p>要让 qt5-styleplugins 生效，需要在 <code>~/.xinitrc</code> 中添加一下内容：  </p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export QT_QPA_PLATFORMTHEME=qt5ct</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h3><p>用于 amd 集显  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h3><table>
+<thead>
+<tr>
+<th>软件包</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zsh</td>
+<td>zsh</td>
+</tr>
+<tr>
+<td>zsh-syntax-highlighting</td>
+<td>语法高亮</td>
+</tr>
+<tr>
+<td>zsh-completions</td>
+<td>自动补全</td>
+</tr>
+<tr>
+<td>zsh-autosuggestions</td>
+<td>命令相似度匹配</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S zsh zsh-syntax-highlighting zsh-completions zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>更改用户的默认 shell：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chsh -l</span><br><span class="line">chsh -s /usr/bin/zsh</span><br></pre></td></tr></table></figure>
+
+<p>之后注销重新登陆，会弹出 zsh 的配置界面<br>按 0 将创建一个只包含注释的 ~&#x2F;.zshrc 文件只使用默认值，在下次启动时不会再次弹出设置选项  </p>
+<blockquote>
+<p>按 0 即可  </p>
+</blockquote>
+<p>如果希望重新设置，只需要把 ~&#x2F;.zshrc 删除即可  </p>
+<p>为了将插件生效，需要修改 ~&#x2F;.zshrc<br>将以下内容加入即可：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br><span class="line">source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br><span class="line">source /usr/share/autojump/autojump.zsh</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>使用 zim 框架进行美化安装  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zimrc</span><br></pre></td></tr></table></figure>
+
+<p>在最后加入需要安装的模块即可：  </p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gitster</td>
+<td>一个 theme</td>
+</tr>
+<tr>
+<td>prompt-pwd</td>
+<td>gitster 模块的依赖</td>
+</tr>
+<tr>
+<td>git-info</td>
+<td>gitster 模块的依赖（但是默认存在，所以不用添加）</td>
+</tr>
+</tbody></table>
+<p>语法格式：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zmodule &lt;module&gt;</span><br><span class="line">zmodule &lt;theme&gt;</span><br></pre></td></tr></table></figure>
+
+<p>直接添加一下内容：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zmodule gitster</span><br><span class="line">zmodule prompt-pwd</span><br></pre></td></tr></table></figure>
+
+<p>重新打开一个终端，执行以下命令：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zimfw install</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="常用应用"><a href="#常用应用" class="headerlink" title="常用应用"></a>常用应用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yay -S firefox-developer-edition google-chrome</span><br><span class="line">yay -S listen1-electron</span><br><span class="line">yay -S okular-git</span><br><span class="line">yay -S flameshot-git</span><br><span class="line">yay -S baidunetdisk-electron</span><br><span class="line">yay -S gwenview-git feh-git imagemagick</span><br><span class="line">yay -S telegram-desktop-bin linuxqq-nt-bwrap</span><br><span class="line">yay -S wemeet-bin</span><br><span class="line">yay -S wps-office-cn ttf-wps-fonts</span><br><span class="line">yay -S lutris</span><br><span class="line">yay -S eudic</span><br><span class="line">sudo pacman -S openssh</span><br><span class="line">sudo pacman -S kamoso ktimer</span><br><span class="line">sudo pacman -S mpv</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="wine"><a href="#wine" class="headerlink" title="wine"></a>wine</h3><p>安装 wine 及相关依赖  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wine wine-mono wine_gecko wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls \</span><br><span class="line">mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error \</span><br><span class="line">lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo \</span><br><span class="line">sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama \</span><br><span class="line">ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 \</span><br><span class="line">lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader</span><br></pre></td></tr></table></figure>
+
+<p>配置 wine<br>wine 默认路径为 ~&#x2F;.wine  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winecfg</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="其他需求"><a href="#其他需求" class="headerlink" title="其他需求"></a>其他需求</h2><h3 id="声音和屏幕背光管理"><a href="#声音和屏幕背光管理" class="headerlink" title="声音和屏幕背光管理"></a>声音和屏幕背光管理</h3><p>amixer 和 alsamixer 工具都包含在alsa-utils包里  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S alsa-utils alsa-firmware pulseaudio pulseaudio-bluetooth light</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>amixer 和 alsamixer：管理声音<br>light：管理屏幕亮度  </p>
+</blockquote>
+<p>如果没有声音，可能是默认声卡设置错误：<br>创建文件 <code>/etc/asound.conf</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/asound.conf</span><br></pre></td></tr></table></figure>
+
+<p>加入一下内容：  </p>
+<blockquote>
+<p>这里通过命令 alpay -l来查看需要设置的声卡编号  </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults.pcm.card 1</span><br><span class="line">defaults.ctl.card 1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中“pcm”选项决定用来播放音频的设备，而“ctl”选项决定那个声卡能够由控制工具（如 alsamixer）使用<br>如果扬声器和耳机同时出现声音，通过alsamixer工具，将Speaker静音，扬声器就没有声音了，只有耳机出声  </p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.threearapig.cc">TheJC</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.threearapig.cc/2023/06/22/archlinux/archlinux-install/">https://www.threearapig.cc/2023/06/22/archlinux/archlinux-install/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.threearapig.cc" target="_blank">Departure Station</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/archlinux/">archlinux</a><a class="post-meta__tags" href="/tags/install/">install</a></div><div class="post_share"><div class="social-share" data-image="https://pichost.threearapig.cc/wallpapers/default_cover_8.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://pichost.threearapig.cc/pay/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/pay/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://pichost.threearapig.cc/pay/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/pay/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2023/06/21/Java-Web/" title="Java Web"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_5.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java Web</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/04/24/archlinux/archlinux%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="archlinux问题总结"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_8.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-24</div><div class="title">archlinux问题总结</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="card-info-avatar"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/avatar/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="palm_tree" fallback-src="https://lskypro.acozycotage.net/LightPicture/2022/12/fe1dc0402e623096.jpg">🐟</g-emoji><span>认真摸鱼中</span></div></div></div><div class="author-info__name">TheJC</div><div class="author-info__description">A Vimer</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/threearapig"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/threearapig" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:threearapig@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的小站！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#archlinux-%E5%AE%89%E8%A3%85%E6%80%BB%E7%BB%93"><span class="toc-text">archlinux 安装总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="toc-text">基本安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80"><span class="toc-text">键盘布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E8%9C%82%E9%B8%A3%E5%99%A8"><span class="toc-text">关闭蜂鸣器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%81%E7%94%A8-reflector"><span class="toc-text">禁用 reflector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91"><span class="toc-text">连接互联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F"><span class="toc-text">更新系统时钟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8C%BA"><span class="toc-text">分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">格式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD"><span class="toc-text">挂载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="toc-text">安装系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90-fstab-%E6%96%87%E4%BB%B6"><span class="toc-text">生成 fstab 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E6%96%B0%E7%9A%84%E7%B3%BB%E7%BB%9F"><span class="toc-text">切换到新的系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-text">设置时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="toc-text">本地化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-text">设置主机名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#root-%E5%AF%86%E7%A0%81"><span class="toc-text">root 密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BE%AE%E7%A0%81"><span class="toc-text">安装微码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="toc-text">安装引导程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%BF%85%E8%A6%81%E5%BA%94%E7%94%A8%E7%9A%84%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-text">设置必要应用的开机自启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%BB%88%E7%AB%AF%E4%B8%AD%E7%9A%84%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80"><span class="toc-text">更改终端中的键盘布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E8%9C%82%E9%B8%A3%E5%99%A8-1"><span class="toc-text">关闭蜂鸣器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E5%AE%89%E8%A3%85%E5%B9%B6%E9%87%8D%E5%90%AF"><span class="toc-text">完成安装并重启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="toc-text">安装后的基本设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5wifi"><span class="toc-text">连接wifi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E9%9D%9E-root-%E7%94%A8%E6%88%B7"><span class="toc-text">准备非 root 用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%BA%A4%E6%8D%A2%E6%96%87%E4%BB%B6-swap"><span class="toc-text">设置交换文件 swap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF-32-%E4%BD%8D%E6%94%AF%E6%8C%81%E5%BA%93"><span class="toc-text">开启 32 位支持库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-DNS"><span class="toc-text">设置 DNS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-paru"><span class="toc-text">安装 paru</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85v2ray%E3%80%81v2rayA"><span class="toc-text">安装v2ray、v2rayA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">安装浏览器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="toc-text">桌面环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8%E5%92%8C%E7%BB%88%E7%AB%AF"><span class="toc-text">窗口管理器和终端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%AD%97%E4%BD%93"><span class="toc-text">常用字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ranger"><span class="toc-text">ranger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fcitx5"><span class="toc-text">fcitx5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E5%92%8C%E5%9B%BE%E6%A0%87"><span class="toc-text">主题和图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8"><span class="toc-text">显卡驱动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell"><span class="toc-text">shell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BA%94%E7%94%A8"><span class="toc-text">常用应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wine"><span class="toc-text">wine</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%9C%80%E6%B1%82"><span class="toc-text">其他需求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E9%9F%B3%E5%92%8C%E5%B1%8F%E5%B9%95%E8%83%8C%E5%85%89%E7%AE%A1%E7%90%86"><span class="toc-text">声音和屏幕背光管理</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/06/22/archlinux/archlinux-install/" title="archlinux install"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="archlinux install"/></a><div class="content"><a class="title" href="/2023/06/22/archlinux/archlinux-install/" title="archlinux install">archlinux install</a><time datetime="2023-06-22T05:25:08.000Z" title="发表于 2023-06-22 13:25:08">2023-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Java-Web/" title="Java Web"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_5.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java Web"/></a><div class="content"><a class="title" href="/2023/06/21/Java-Web/" title="Java Web">Java Web</a><time datetime="2023-06-21T14:04:24.000Z" title="发表于 2023-06-21 22:04:24">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/15/data_structure/tree/" title="Tree"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_11.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tree"/></a><div class="content"><a class="title" href="/2023/06/15/data_structure/tree/" title="Tree">Tree</a><time datetime="2023-06-15T15:37:45.000Z" title="发表于 2023-06-15 23:37:45">2023-06-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/11/tools/dwm/" title="dwm"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_11.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="dwm"/></a><div class="content"><a class="title" href="/2023/06/11/tools/dwm/" title="dwm">dwm</a><time datetime="2023-06-11T07:47:18.000Z" title="发表于 2023-06-11 15:47:18">2023-06-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/05/data_structure/linear-list/linear-list/" title="linear list"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_6.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linear list"/></a><div class="content"><a class="title" href="/2023/06/05/data_structure/linear-list/linear-list/" title="linear list">linear list</a><time datetime="2023-06-05T08:43:49.000Z" title="发表于 2023-06-05 16:43:49">2023-06-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By TheJC</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script async src="//blog.threearapig.cc/pace/pace.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.threearapig.cc/categories/数据结构/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 数据结构 读书笔记 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.threearapig.cc/categories/博客/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👀 博客搭建 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://www.threearapig.cc/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://blog.threearapig.cc/footer/runtime.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/05/data_structure/linear-list/linear-list/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_6.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-05</span><a class="blog-slider__title" href="2023/06/05/data_structure/linear-list/linear-list/" alt="">linear list</a><div class="blog-slider__text">线性表学习阶段记录</div><a class="blog-slider__button" href="2023/06/05/data_structure/linear-list/linear-list/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/05/13/tools/tmux/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_6.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-05-13</span><a class="blog-slider__title" href="2023/05/13/tools/tmux/" alt="">tmux</a><div class="blog-slider__text">tmux</div><a class="blog-slider__button" href="2023/05/13/tools/tmux/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/04/16/hexo/hexo博客搭建进阶篇/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_9.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-04-16</span><a class="blog-slider__title" href="2023/04/16/hexo/hexo博客搭建进阶篇/" alt="">hexo博客搭建进阶篇</a><div class="blog-slider__text">hexo 博客搭建进阶篇</div><a class="blog-slider__button" href="2023/04/16/hexo/hexo博客搭建进阶篇/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/04/16/hexo/hexo博客搭建基础篇/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_2.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-04-16</span><a class="blog-slider__title" href="2023/04/16/hexo/hexo博客搭建基础篇/" alt="">hexo 博客搭建基础篇</a><div class="blog-slider__text">hexo 博客搭建基础篇</div><a class="blog-slider__button" href="2023/04/16/hexo/hexo博客搭建基础篇/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/15/data_structure/tree/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pichost.threearapig.cc/wallpapers/default_cover_11.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-15</span><a class="blog-slider__title" href="2023/06/15/data_structure/tree/" alt="">Tree</a><div class="blog-slider__text">树的学习记录</div><a class="blog-slider__button" href="2023/06/15/data_structure/tree/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://blog.threearapig.cc/wowjs/wow.min.js"></script><script defer src="https://blog.threearapig.cc/wowjs/wow_init.js"></script><script data-pjax src="https://blog.threearapig.cc/gitcalendar/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('gitZone');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('gitZone') && (location.pathname ==='/about/'|| '/about/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("https://gitcalendar.fomal.cc/api?threearapig",['#d9e0df', '#c6e0dc', '#a8dcd4', '#9adcd2', '#89ded1', '#77e0d0', '#5fdecb', '#47dcc6', '#39dcc3', '#1fdabe', '#00dab9'],'threearapig')
+    }
+  </script><!-- hexo injector body_end end --></body></html>
